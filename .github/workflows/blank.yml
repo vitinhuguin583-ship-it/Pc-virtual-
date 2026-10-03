@@ -1,0 +1,26 @@
+name: PC Virtual
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pc-virtual:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Atualizar sistema
+        run: |
+          sudo apt update
+          sudo apt upgrade -y
+
+      - name: Instalar ferramentas
+        run: |
+          sudo apt install -y htop neofetch git
+
+      - name: Mostrar informações do PC
+        run: |
+          echo "PC virtual iniciado!"
+          neofetch
+          echo "Usuário: $(whoami)"
+          echo "Diretório: $(pwd)"
+          
